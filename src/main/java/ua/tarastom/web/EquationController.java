@@ -28,7 +28,9 @@ public class EquationController {
     @RequestMapping(value = "/processForm" , method = RequestMethod.POST)
     public String processForm(@ModelAttribute("inputData") EquationModel equationModel, Model theModel) {
         double discriminant = equationModel.getB()*equationModel.getB() - 4 * equationModel.getA()*equationModel.getC();
-        if (discriminant < 0) {
+        if(equationModel.getA() == 0){
+            return "error-null";
+        }  else if (discriminant < 0) {
             return "error";
         }else if (discriminant == 0) {
             equationModel.setX1(-equationModel.getB() / (2*equationModel.getA()));
