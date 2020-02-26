@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ua.tarastom.dao.EquationDAOImpl;
 import ua.tarastom.entity.EquationModel;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/equation")
 public class EquationController {
@@ -38,8 +40,8 @@ public class EquationController {
         }
 
         equationDAOImpl.saveResult(equationModel);
-        theModel.addAttribute("resultEquationModel", equationModel);
-
+        List<EquationModel> equations = equationDAOImpl.getEquations();
+        theModel.addAttribute("equations", equations);
         return "equation-result";
     }
 }

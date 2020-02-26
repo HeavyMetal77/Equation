@@ -82,5 +82,17 @@ public class EquationModel {
     public void setX2(double x2) {
         this.x2 = x2;
     }
+
+    @Override
+    public String toString() {
+        return "EquationModel{" +
+                "id=" + id +
+                ", a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                ", x1=" + x1 +
+                ", x2=" + x2 +
+                '}';
+    }
 }
 

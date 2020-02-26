@@ -9,6 +9,6 @@
 <p3>Дане рівняння не має коренів!</p3><br>
 <br>
 <hr>
-<a href="/equation/showForm">Вирішити інше рівняння</a> <br>
+<a href="${pageContext.request.contextPath}/equation/showForm">Вирішити інше рівняння</a> <br>
 </body>
 </html>

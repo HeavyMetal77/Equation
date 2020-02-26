@@ -7,8 +7,10 @@
     <title>Input Data</title>
 </head>
 <body>
-<p>Введіть дані квадратного рівняння ax^2 + bx + c = 0:</p><br>
 
+<hr>
+<p>Введіть дані квадратного рівняння ax^2 + bx + c = 0</p><br>
+<hr>
 
 <form:form action="processForm" method="post" modelAttribute="inputData">
     <table>
@@ -26,7 +28,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="decide"/></td>
+            <td><input type="submit" value="рассчитать"/></td>
         </tr>
     </table>
 </form:form>
