@@ -12,13 +12,13 @@ public class EquationModel {
     private int id;
 
     @Column(name = "a")
-    private int a;
+    private double a;
 
     @Column(name = "b")
-    private int b;
+    private double b;
 
     @Column(name = "c")
-    private int c;
+    private double c;
 
     @Column(name = "x1")
     private double x1;
@@ -29,7 +29,7 @@ public class EquationModel {
     public EquationModel() {
     }
 
-    public EquationModel(int a, int b, int c) {
+    public EquationModel(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -43,27 +43,27 @@ public class EquationModel {
         this.id = id;
     }
 
-    public int getA() {
+    public double getA() {
         return a;
     }
 
-    public void setA(int a) {
+    public void setA(double a) {
         this.a = a;
     }
 
-    public int getB() {
+    public double getB() {
         return b;
     }
 
-    public void setB(int b) {
+    public void setB(double b) {
         this.b = b;
     }
 
-    public int getC() {
+    public double getC() {
         return c;
     }
 
-    public void setC(int c) {
+    public void setC(double c) {
         this.c = c;
     }
 

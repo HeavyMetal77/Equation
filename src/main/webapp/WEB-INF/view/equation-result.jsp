@@ -39,6 +39,6 @@
     </div>
 </div>
 <hr>
-<a href="${pageContext.request.contextPath}/equation/showForm">Вирішити інше рівняння</a> <br>
+<a href="/equation/showForm">Вирішити інше рівняння</a> <br>
 </body>
 </html>

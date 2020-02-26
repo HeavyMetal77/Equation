@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="рассчитать"/></td>
+            <td><input type="submit" value="вирахувати"/></td>
         </tr>
     </table>
 </form:form>
