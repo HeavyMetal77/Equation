@@ -12,31 +12,29 @@ import java.util.List;
 @Repository
 public class EquationDAOImpl implements EquationDAO {
 
-    SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml")
-            .addAnnotatedClass(EquationModel.class).buildSessionFactory();
+    private SessionFactory sessionFactory;
+
+    public EquationDAOImpl() {
+        sessionFactory = new Configuration().configure("hibernate.cfg.xml")
+                .addAnnotatedClass(EquationModel.class).buildSessionFactory();
+    }
 
     @Override
     public void saveResult(EquationModel equationModel) {
-        Session currentSession = sessionFactory.getCurrentSession();
-        try {
+        try (Session currentSession = sessionFactory.getCurrentSession()){
             currentSession.beginTransaction();
             currentSession.save(equationModel);
             currentSession.getTransaction().commit();
-        } finally {
-            currentSession.close();
         }
     }
 
     @Override
     public List<EquationModel> getEquations() {
         List resultList;
-        Session currentSession = sessionFactory.getCurrentSession();
-        try {
+        try(Session currentSession = sessionFactory.getCurrentSession()) {
             currentSession.beginTransaction();
             Query from_equationModel = currentSession.createQuery("from EquationModel", EquationModel.class);
             resultList = from_equationModel.getResultList();
-        } finally {
-            currentSession.close();
         }
         return resultList;
     }

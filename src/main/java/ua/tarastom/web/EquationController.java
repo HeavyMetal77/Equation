@@ -20,7 +20,6 @@ public class EquationController {
 
     @RequestMapping(value = "/showForm", method = RequestMethod.GET)
     public String showForm(Model theModel) {
-
         EquationModel equationModel = new EquationModel();
         theModel.addAttribute("inputData", equationModel);
         return "inputData";
