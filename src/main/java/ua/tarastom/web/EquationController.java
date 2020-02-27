@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ua.tarastom.dao.EquationDAOImpl;
+import ua.tarastom.dao.EquationDAO;
 import ua.tarastom.entity.EquationModel;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
 public class EquationController {
 
     @Autowired
-    EquationDAOImpl equationDAOImpl;
+    EquationDAO equationDAO;
 
     @RequestMapping(value = "/showForm", method = RequestMethod.GET)
     public String showForm(Model theModel) {
@@ -40,8 +40,8 @@ public class EquationController {
             equationModel.setX2((-equationModel.getB() - Math.sqrt(discriminant))/2*equationModel.getA());
         }
 
-        equationDAOImpl.saveResult(equationModel);
-        List<EquationModel> equations = equationDAOImpl.getEquations();
+        equationDAO.saveResult(equationModel);
+        List<EquationModel> equations = equationDAO.getEquations();
         theModel.addAttribute("equations", equations);
         return "equation-result";
     }
