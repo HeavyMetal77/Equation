@@ -44,6 +44,9 @@ public class EquationModel {
     }
 
     public Double getA() {
+        if (a == null) {
+            return 0.0;
+        }
         return a;
     }
 
@@ -52,6 +55,9 @@ public class EquationModel {
     }
 
     public Double getB() {
+        if (b == null) {
+            return 0.0;
+        }
         return b;
     }
 
@@ -60,6 +66,9 @@ public class EquationModel {
     }
 
     public Double getC() {
+        if (c == null) {
+            return 0.0;
+        }
         return c;
     }
 
