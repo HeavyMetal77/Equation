@@ -12,19 +12,19 @@ public class EquationModel {
     private int id;
 
     @Column(name = "a")
-    private double a;
+    private Double a;
 
     @Column(name = "b")
-    private double b;
+    private Double b;
 
     @Column(name = "c")
-    private double c;
+    private Double c;
 
     @Column(name = "x1")
-    private double x1;
+    private Double x1;
 
     @Column(name = "x2")
-    private double x2;
+    private Double x2;
 
     public EquationModel() {
     }
@@ -43,43 +43,43 @@ public class EquationModel {
         this.id = id;
     }
 
-    public double getA() {
+    public Double getA() {
         return a;
     }
 
-    public void setA(double a) {
+    public void setA(Double a) {
         this.a = a;
     }
 
-    public double getB() {
+    public Double getB() {
         return b;
     }
 
-    public void setB(double b) {
+    public void setB(Double b) {
         this.b = b;
     }
 
-    public double getC() {
+    public Double getC() {
         return c;
     }
 
-    public void setC(double c) {
+    public void setC(Double c) {
         this.c = c;
     }
 
-    public double getX1() {
+    public Double getX1() {
         return x1;
     }
 
-    public void setX1(double x1) {
+    public void setX1(Double x1) {
         this.x1 = x1;
     }
 
-    public double getX2() {
+    public Double getX2() {
         return x2;
     }
 
-    public void setX2(double x2) {
+    public void setX2(Double x2) {
         this.x2 = x2;
     }
 
