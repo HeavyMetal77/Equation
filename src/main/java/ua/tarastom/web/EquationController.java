@@ -36,8 +36,8 @@ public class EquationController {
             equationModel.setX1(-equationModel.getB() / (2*equationModel.getA()));
             equationModel.setX2(-equationModel.getB() / (2*equationModel.getA()));
         } else if (discriminant > 0) {
-            equationModel.setX1((-equationModel.getB() + Math.sqrt(discriminant))/2*equationModel.getA());
-            equationModel.setX2((-equationModel.getB() - Math.sqrt(discriminant))/2*equationModel.getA());
+            equationModel.setX1((-equationModel.getB() + Math.sqrt(discriminant))/(2*equationModel.getA()));
+            equationModel.setX2((-equationModel.getB() - Math.sqrt(discriminant))/(2*equationModel.getA()));
         }
 
         equationDAO.saveResult(equationModel);
