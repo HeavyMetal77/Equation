@@ -16,15 +16,15 @@
     <table>
         <tr>
             <td><form:label path="a">a</form:label></td>
-            <td><form:input path="a"/></td>
+            <td><form:input type="number" path="a"/></td>
         </tr>
         <tr>
             <td><form:label path="b">b</form:label></td>
-            <td><form:input path="b"/></td>
+            <td><form:input type="number" path="b"/></td>
         </tr>
         <tr>
             <td><form:label path="c">c</form:label></td>
-            <td><form:input path="c"/></td>
+            <td><form:input type="number" path="c"/></td>
         </tr>
         <tr>
             <td></td>
