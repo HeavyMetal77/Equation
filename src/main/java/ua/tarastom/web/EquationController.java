@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ua.tarastom.dao.EquationDAO;
 import ua.tarastom.entity.EquationModel;
+import ua.tarastom.service.EquationService;
 
 import java.util.List;
 
@@ -17,6 +18,8 @@ public class EquationController {
 
     @Autowired
     EquationDAO equationDAO;
+    @Autowired
+    EquationService equationService;
 
     @RequestMapping(value = "/showForm", method = RequestMethod.GET)
     public String showForm(Model theModel) {
@@ -28,20 +31,13 @@ public class EquationController {
     @RequestMapping(value = "/processForm" , method = RequestMethod.POST)
     public String processForm(@ModelAttribute("inputData") EquationModel equationModel, Model theModel) {
         if(equationModel.getA() == 0){
-            return "error-null";
-        }
-        double discriminant = equationModel.getB()*equationModel.getB() - 4 * equationModel.getA()*equationModel.getC();
-        if (discriminant < 0) {
-            return "error";
-        }else if (discriminant == 0) {
-            equationModel.setX1(-equationModel.getB() / (2*equationModel.getA()));
-            equationModel.setX2(-equationModel.getB() / (2*equationModel.getA()));
-        } else if (discriminant > 0) {
-            equationModel.setX1((-equationModel.getB() + Math.sqrt(discriminant))/(2*equationModel.getA()));
-            equationModel.setX2((-equationModel.getB() - Math.sqrt(discriminant))/(2*equationModel.getA()));
+            return "error-not-quadratic";
         }
 
-        equationDAO.saveResult(equationModel);
+        double discr = equationService.discriminant(equationModel);
+        EquationModel equationModelResult = equationService.quadraticEquation(equationModel, discr);
+
+        equationDAO.saveResult(equationModelResult);
         List<EquationModel> equations = equationDAO.getEquations();
         theModel.addAttribute("equations", equations);
         return "equation-result";
